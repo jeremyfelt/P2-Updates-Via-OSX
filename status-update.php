@@ -15,9 +15,9 @@
  */
 
 // setup
-$xmlrpc_user = 'YOUR XMLRPC USERNAME';
-$xmlrpc_pass = 'YOUR XMLRPC PASSWORD';
-$xmlrpc_url  = 'YOUR XMLRPC ENDPOINT';
+$xmlrpc_user = 'jeremy';
+$xmlrpc_pass = 'This is my 10uplabs password.';
+$xmlrpc_url  = 'http://status.10uplabs.com/xmlrpc.php';
 
 // using it wrong
 if ( ! isset( $argv[1] ) )
@@ -30,12 +30,13 @@ else
 	$tags = array();
 
 $data = array(
-	'post_content' => $argv[1],
-	'post_format'  => 'status',
-	'post_status'  => 'publish',
-	'terms_names'  => array(
+	'post_content'   => $argv[1],
+	'post_format'    => 'status',
+	'post_status'    => 'publish',
+	'terms_names'    => array(
 		'post_tag' => $tags,
 		),
+	'comment_status' => 'open',
 );
 
 $params = array( 0, $xmlrpc_user, $xmlrpc_pass, $data );
